@@ -103,4 +103,4 @@ Pastikan komputer telah terinstal **Node.js** (versi 18.0 atau lebih tinggi).
 
 ## ⚖️ Hak Cipta & Lisensi
 
-Hak Cipta © 2026 **SMA IT Akmala Sabila**. Seluruh Hak Cipta Dilindungi Undang-Undang.
+Hak Cipta © 2026 Seluruh Hak Cipta Dilindungi Undang-Undang.
