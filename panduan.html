@@ -1,0 +1,655 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Buku Panduan Penggunaan AKSMA GREEN HUB</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    @page {
+      size: A4;
+      margin: 18mm 16mm 20mm 16mm;
+      @bottom-right {
+        content: counter(page);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 9pt;
+        color: #64748b;
+      }
+      @bottom-left {
+        content: "AKSMA GREEN HUB • SMA IT Akmala Sabila";
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 8pt;
+        color: #94a3b8;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.6;
+      font-size: 10pt;
+    }
+
+    /* Print Break Utilities */
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+    .avoid-break {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* Cover Page */
+    .cover {
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 3px solid #059669;
+      border-radius: 20px;
+      padding: 40px 35px;
+      background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #ecfdf5 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(16,185,129,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cover-badge {
+      display: inline-block;
+      background: #059669;
+      color: #ffffff;
+      font-size: 8.5pt;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+    .cover-title {
+      font-size: 28pt;
+      font-weight: 800;
+      color: #064e3b;
+      line-height: 1.2;
+      margin-top: 15px;
+      margin-bottom: 12px;
+    }
+    .cover-subtitle {
+      font-size: 13pt;
+      color: #047857;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 25px;
+    }
+    .cover-desc {
+      font-size: 10.5pt;
+      color: #475569;
+      max-width: 90%;
+      line-height: 1.6;
+      border-left: 3px solid #10b981;
+      padding-left: 14px;
+      margin-bottom: 30px;
+    }
+    .cover-meta {
+      background: #ffffff;
+      border: 1px solid #a7f3d0;
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      box-shadow: 0 4px 15px rgba(5,150,105,0.08);
+    }
+    .cover-meta-item h4 {
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      color: #059669;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .cover-meta-item p {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 2px;
+    }
+    .cover-footer {
+      border-top: 2px dashed #a7f3d0;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8.5pt;
+      color: #64748b;
+    }
+
+    /* Typography & Headers */
+    h1 {
+      font-size: 18pt;
+      font-weight: 800;
+      color: #065f46;
+      border-bottom: 2px solid #10b981;
+      padding-bottom: 6px;
+      margin-top: 20px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2 {
+      font-size: 13pt;
+      font-weight: 700;
+      color: #0f766e;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+    h3 {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 12px;
+      margin-bottom: 6px;
+    }
+    p {
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+
+    /* Callout & Alert Boxes */
+    .callout {
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin: 12px 0;
+      font-size: 9.5pt;
+      border-left: 4px solid;
+    }
+    .callout-success {
+      background: #f0fdf4;
+      border-color: #059669;
+      color: #064e3b;
+    }
+    .callout-warning {
+      background: #fffbeb;
+      border-color: #d97706;
+      color: #78350f;
+    }
+    .callout-info {
+      background: #f0f9ff;
+      border-color: #0284c7;
+      color: #0c4a6e;
+    }
+    .callout-danger {
+      background: #fef2f2;
+      border-color: #e11d48;
+      color: #881337;
+    }
+    .callout h4 {
+      font-weight: 800;
+      font-size: 9.5pt;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 9pt;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    th {
+      background: #047857;
+      color: #ffffff;
+      padding: 8px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      color: #334155;
+    }
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    /* Badges & Code */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 50px;
+      font-size: 8pt;
+      font-weight: 700;
+    }
+    .badge-green { background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
+    .badge-amber { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+    .badge-red { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+    .badge-blue { background: #e0f2fe; color: #075985; border: 1px solid #7dd3fc; }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 1.5px 5px;
+      border-radius: 4px;
+      font-size: 8.5pt;
+      border: 1px solid #cbd5e1;
+    }
+
+    /* Step lists */
+    ol.steps {
+      counter-reset: step-counter;
+      list-style: none;
+      margin: 10px 0;
+    }
+    ol.steps > li {
+      counter-increment: step-counter;
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 12px;
+      min-height: 28px;
+    }
+    ol.steps > li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: #059669;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8.5pt;
+      font-weight: 800;
+    }
+
+    /* Grid cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 10px 0;
+    }
+    .card {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px;
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .card-header {
+      font-weight: 800;
+      font-size: 10pt;
+      color: #047857;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= COVER PAGE ================= -->
+  <div class="cover page-break">
+    <div>
+      <span class="cover-badge">Dokumen Resmi Panduan Operasional</span>
+      <h1 class="cover-title">BUKU PANDUAN PENGGUNAAN<br>AKSMA GREEN HUB</h1>
+      <div class="cover-subtitle">
+        Portal Digital Kebersihan, Bank Sampah & Pemantauan Sarana Prasarana
+      </div>
+      <p class="cover-desc">
+        Panduan komprehensif bagi Santri, Petugas Piket, Wali Kelas, serta Tim Sarpras & Administrator dalam mengoperasikan sistem AKSMA GREEN HUB secara terpadu, aman, dan akuntabel di lingkungan <strong>SMA IT Akmala Sabila</strong>.
+      </p>
+    </div>
+
+    <div>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <h4>Institusi Pelaksana</h4>
+          <p>SMA IT Akmala Sabila</p>
+        </div>
+        <div class="cover-meta-item">
+          <h4>Versi Sistem</h4>
+          <p>AKSMA Hub v1.0.0 (Release 2026)</p>
+        </div>
+        <div class="cover-meta-item">
+          <h4>Standar Keamanan</h4>
+          <p>Kriptografi SHA-256 + Anti Brute-Force</p>
+        </div>
+        <div class="cover-meta-item">
+          <h4>Pengembang & PLP</h4>
+          <p>Tim Sarpras & PLP MPI 2026</p>
+        </div>
+      </div>
+
+      <div class="cover-footer">
+        <div>Hak Cipta &copy; 2026 SMA IT Akmala Sabila. Seluruh Hak Cipta Dilindungi.</div>
+        <div>Dokumen Operasional Resmi</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= BAB 1: PENDAHULUAN & ARSITEKTUR ================= -->
+  <h1>BAB I: Pendahuluan & Gambaran Umum</h1>
+
+  <p>
+    <strong>AKSMA GREEN HUB</strong> adalah platform digital terintegrasi yang dikembangkan khusus untuk mendukung program Sekolah Adiwiyata dan Gerakan Peduli Lingkungan di <strong>SMA IT Akmala Sabila</strong>. Platform ini menggantikan sistem pencatatan konvensional dengan digitalisasi tiga fungsi utama:
+  </p>
+
+  <div class="grid-2 avoid-break">
+    <div class="card">
+      <div class="card-header">1. AKSMA Clean Check</div>
+      <p style="font-size: 8.5pt; color: #475569;">
+        Digitalisasi penilaian piket kebersihan kelas berdasarkan standar <strong>5R</strong> <em>(Ringkas, Rapi, Resik, Rawat, Rajin)</em> dengan kewajiban unggah foto fisik sebagai bukti keabsahan.
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-header">2. AKSMA Eco-Point</div>
+      <p style="font-size: 8.5pt; color: #475569;">
+        Bank sampah daur ulang sekolah. Sampah anorganik bernilai ekonomis disetorkan, ditimbang, dan dikonversi otomatis menjadi Poin Hijau kelas setelah diverifikasi Admin.
+      </p>
+    </div>
+  </div>
+
+  <div class="card avoid-break" style="margin-top: 10px;">
+    <div class="card-header">3. AKSMA Green Report (Aduan Sarpras & Kebersihan Kampus)</div>
+    <p style="font-size: 8.5pt; color: #475569;">
+      Sistem aduan kerusakan sarana prasarana dan area kotor berbasis koordinat GPS interaktif. Santri dapat melaporkan dengan GPS perangkat atau mengatur titik lokasi secara manual. Tim Sarpras mengontrol penuh status pengerjaan hingga selesai.
+    </p>
+  </div>
+
+  <h2>Hak Akses Pengguna (Role-Based Access Control)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 22%;">Peran Pengguna</th>
+        <th style="width: 48%;">Hak Akses & Batasan</th>
+        <th style="width: 30%;">Status Akun Bawaan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Siswa / User</strong></td>
+        <td>
+          &bull; Melakukan audit piket kelas (Clean Check)<br>
+          &bull; Mengajukan setoran bank sampah (Eco-Point)<br>
+          &bull; Melaporkan kerusakan sarpras dengan foto & GPS<br>
+          &bull; Melihat denah aduan & riwayat status (Hanya Lihat)
+        </td>
+        <td>
+          Username: <code>user</code><br>
+          Password: <code>user123</code>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Administrator</strong></td>
+        <td>
+          &bull; Verifikasi bukti foto piket & sampah (Menyetujui/Menolak)<br>
+          &bull; Koreksi poin laporan jika terindikasi rekayasa<br>
+          &bull; Manajemen penuh CRUD data User dan Kelas<br>
+          &bull; Menindaklanjuti status aduan sarpras (Baru &rarr; Proses &rarr; Selesai)<br>
+          &bull; Edit form checklist 5R & bobot poin kriteria<br>
+          &bull; Ekspor data lengkap spreadsheet Excel (.xlsx multi-sheet)<br>
+          &bull; Pemantauan log audit siber & ganti kredensial admin
+        </td>
+        <td>
+          Username: <code>admin_aksma</code><br>
+          Password: <code>Akmala@2026!</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ================= BAB 2: AUTENTIKASI & KEAMANAN SIBER ================= -->
+  <div class="page-break"></div>
+  <h1>BAB II: Panduan Autentikasi & Keamanan Akun</h1>
+
+  <p>
+    Sistem AKSMA GREEN HUB dilengkapi sistem pertahanan kriptografis modern untuk memastikan kerahasiaan username dan password seluruh civitas sekolah.
+  </p>
+
+  <h2>1. Mekanisme Enkripsi SHA-256 + Unique Salt</h2>
+  <p>
+    Setiap kata sandi yang diketikkan pengguna langsung di-hash menggunakan standar <strong>Web Crypto API SHA-256</strong> yang dikombinasikan dengan <em>cryptographic salt</em> statis sistem. Password asli <strong>tidak pernah disimpan dalam bentuk teks polos</strong> sehingga kebal terhadap serangan kebocoran basis data maupun <em>Dictionary/Rainbow Table attacks</em>.
+  </p>
+
+  <h2>2. Proteksi Anti Brute-Force (Rate Limiting 60 Detik)</h2>
+  <div class="callout callout-warning avoid-break">
+    <h4>Perhatian Keamanan Siber</h4>
+    Sistem menerapkan toleransi maksimal <strong>5 kali percobaan login yang salah berturut-turut</strong>. Jika terjadi kegagalan ke-5, sistem otomatis mengunci akses login selama <strong>60 detik</strong>.
+  </div>
+
+  <p>
+    Selama masa penguncian (*Lockout Cooldown*):
+  </p>
+  <ul style="padding-left: 20px; font-size: 9pt; margin-bottom: 10px;">
+    <li>Formulir username, password, dan tombol masuk akan dinonaktifkan secara otomatis.</li>
+    <li>Muncul banner peringatan merah dengan <strong>hitung mundur live (live countdown timer)</strong>.</li>
+    <li>Upaya pembobolan otomatis dicatat dalam <strong>Log Audit Keamanan Administrator</strong> lengkap dengan timestamp detiknya.</li>
+  </ul>
+
+  <h2>3. Langkah Masuk (Login) ke Portal</h2>
+  <ol class="steps avoid-break">
+    <li>Buka portal web di browser melalui alamat resmi sekolah.</li>
+    <li>Pada halaman <strong>Masuk ke Sistem</strong>, ketikkan <strong>Username Akun</strong> Anda.</li>
+    <li>Ketikkan <strong>Password</strong> akun Anda. Anda dapat mengklik ikon mata untuk melihat karakter sandi.</li>
+    <li>Klik tombol hijau <strong>Masuk ke Sistem</strong>.</li>
+    <li>Sistem secara otomatis mendeteksi apakah Anda masuk sebagai <strong>Siswa</strong> atau <strong>Administrator</strong> tanpa perlu memilih tombol manual.</li>
+  </ol>
+
+  <!-- ================= BAB 3: PANDUAN PENGGUNA SISWA ================= -->
+  <div class="page-break"></div>
+  <h1>BAB III: Panduan Pengguna Siswa & Petugas Piket</h1>
+
+  <h2>A. Alur Pelaporan Piket 5R (AKSMA Clean Check)</h2>
+  <ol class="steps avoid-break">
+    <li>Pilih menu <strong>Clean Check</strong> pada bilah navigasi atas.</li>
+    <li>Pilih <strong>Rombongan Belajar (Kelas)</strong> Anda dan ketikkan <strong>Nama Petugas Piket</strong>.</li>
+    <li>Cek kondisi kelas dan centang butir evaluasi 5R yang terpenuhi (Lantai bersih, Meja rapi, Papan tulis bersih, Jendela bebas debu, Tempat sampah terpilah).</li>
+    <li><strong>Unggah Bukti Foto Fisik</strong>: Klik area unggah foto untuk melampirkan foto kondisi kelas setelah dipiket. <em>(Laporan tanpa foto tidak dapat diverifikasi oleh Admin)</em>.</li>
+    <li>Ketik catatan tambahan jika terdapat kendala sarana piket.</li>
+    <li>Klik <strong>Kirim Laporan Piket</strong>. Laporan akan berstatus <span class="badge badge-amber">Menunggu Verifikasi Admin</span>. Nilai kelas akan terakumulasi setelah disetujui.</li>
+  </ol>
+
+  <h2>B. Alur Penyetoran Sampah (AKSMA Eco-Point)</h2>
+  <ol class="steps avoid-break">
+    <li>Buka menu <strong>Eco-Point</strong> di portal.</li>
+    <li>Pilih <strong>Kelas</strong> penyetor dan masukkan <strong>Nama Santri / Penyetor</strong>.</li>
+    <li>Pilih <strong>Kategori Sampah</strong>:
+      <span class="badge badge-green">Botol Plastik PET</span>,
+      <span class="badge badge-blue">Kardus / Karton</span>,
+      <span class="badge badge-amber">Kaleng Logam</span>, atau
+      <span class="badge badge-red">Minyak Jelantah</span>.
+    </li>
+    <li>Ketikkan <strong>Jumlah Satuan / Kilogram</strong> sampah yang disetorkan. Estimasi perolehan poin akan dihitung otomatis oleh sistem.</li>
+    <li><strong>Wajib Unggah Foto Penimbangan</strong>: Ambil foto sampah saat ditimbang di bank sampah sekolah sebagai bukti fisik.</li>
+    <li>Klik <strong>Setorkan Sampah</strong>. Laporan berstatus <span class="badge badge-amber">Menunggu Verifikasi</span> hingga admin menyetujui setoran tersebut.</li>
+  </ol>
+
+  <h2>C. Alur Pengaduan Sarpras & Lingkungan (AKSMA Green Report)</h2>
+  <ol class="steps avoid-break">
+    <li>Pilih menu <strong>Green Report</strong>.</li>
+    <li>Ketikkan <strong>Nama Pelapor</strong> dan <strong>Judul Permasalahan</strong> (contoh: <em>Kran Air Wudhu Gedung B Bocor</em>).</li>
+    <li>Pilih <strong>Kategori</strong> (Fasilitas Rusak, Sampah Menumpuk, Saluran Air, Sanitasi, dsb) dan <strong>Tingkat Urgensi</strong>.</li>
+    <li><strong>Perekaman Titik GPS</strong>:
+      <ul style="margin: 4px 0 6px 20px; font-size: 8.5pt;">
+        <li><strong>Deteksi Otomatis</strong>: Klik tombol <em>Deteksi GPS Saya</em> untuk mengambil koordinat satelit terkini dari perangkat.</li>
+        <li><strong>Penyesuaian Manual</strong>: Jika berada di dalam gedung dan sinyal lemah, Anda dapat mengetikkan atau menggeser nilai Latitude & Longitude manual.</li>
+      </ul>
+    </li>
+    <li>Unggah foto sarpras yang rusak dan klik <strong>Kirim Laporan Aduan</strong>.</li>
+    <li>Santri dapat memantau titik laporan di <strong>Peta Denah Interaktif</strong> dan memantau statusnya (<span class="badge badge-red">Baru</span> &rarr; <span class="badge badge-amber">Diproses</span> &rarr; <span class="badge badge-green">Selesai</span>).</li>
+  </ol>
+
+  <!-- ================= BAB 4: PANDUAN ADMINISTRATOR ================= -->
+  <div class="page-break"></div>
+  <h1>BAB IV: Panduan Tim Administrator Sekolah</h1>
+
+  <h2>1. Verifikasi Laporan Piket & Poin Sampah</h2>
+  <div class="callout callout-info avoid-break">
+    <h4>Integritas Data Bersama Admin</h4>
+    Poin Eco-Point dan Skor Kebersihan 5R tidak akan pernah bertambah secara otomatis sebelum Administrator memeriksa bukti foto fisik yang dilampirkan santri.
+  </div>
+  <p>Langkah verifikasi oleh Administrator:</p>
+  <ul style="padding-left: 20px; font-size: 9pt; margin-bottom: 10px;">
+    <li>Buka halaman Clean Check atau Eco-Point dengan akun Admin.</li>
+    <li>Klik tombol <strong>Lihat Bukti Foto</strong> untuk mencocokkan laporan dengan kebenaran fisik.</li>
+    <li>Jika valid, klik tombol <span class="badge badge-green">Setujui & Verifikasi</span>. Poin dan skor otomatis masuk ke grafik dan peringkat rombel.</li>
+    <li><strong>Koreksi Poin Rekayasa</strong>: Jika santri melebih-lebihkan jumlah timbangan sampah, Admin dapat mengklik tombol <em>Edit Poin</em> dan menyesuaikan jumlah yang sebenarnya sebelum diverifikasi.</li>
+  </ul>
+
+  <h2>2. Panel Administrator Monitoring (Pusat Kontrol Utama)</h2>
+  <p>
+    Klik tombol emas <strong>Panel Admin</strong> di navbar atas untuk mengakses pusat kendali. Tersedia 6 subtab kontrol:
+  </p>
+
+  <div class="grid-2 avoid-break">
+    <div class="card">
+      <div class="card-header">1. Subtab Statistik & Grafik</div>
+      <p style="font-size: 8.5pt; color: #475569;">
+        Menampilkan 3 grafik interaktif Chart.js: Rata-rata Skor Kebersihan per Kelas, Komposisi Jenis Sampah Terkumpul, serta Distribusi Penyelesaian Aduan Sarpras.
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-header">2. Subtab Kelola User</div>
+      <p style="font-size: 8.5pt; color: #475569;">
+        Menambah santri baru, reset kata sandi, filter peranan, dan menghapus akun pengguna sekolah.
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-header">3. Subtab Kelola Kelas</div>
+      <p style="font-size: 8.5pt; color: #475569;">
+        Manajemen rombongan belajar (X-A, XI-IPA, XII-Agama), nama wali kelas, jumlah santri, dan lokasi gedung.
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-header">4. Subtab Peta Aduan GPS</div>
+      <p style="font-size: 8.5pt; color: #475569;">
+        Visualisasi sebaran titik kerusakan sarpras di denah sekolah dan mengubah status penanganan perbaikan.
+      </p>
+    </div>
+  </div>
+
+  <h2>3. Mengubah Kredensial Administrator Secara Aman</h2>
+  <ol class="steps avoid-break">
+    <li>Di panel admin, klik tombol kuning <strong>Kredensial Admin</strong> di pojok kanan navigasi tab.</li>
+    <li>Ketikkan <strong>Password Administrator Saat Ini</strong> untuk konfirmasi keamanan identitas.</li>
+    <li>Ketikkan <strong>Username Baru</strong> (minimal 4 karakter).</li>
+    <li>Ketikkan <strong>Password Baru</strong>. Pantau indikator bar <em>Live Password Strength Meter</em> hingga mencapai status <span class="badge badge-green">Sangat Kuat (100%)</span>.</li>
+    <li>Ketik ulang pada kolom <strong>Ulangi Password Baru</strong> dan klik <strong>Simpan Kredensial Baru</strong>.</li>
+    <li>Kredensial baru langsung di-hash dengan SHA-256 dan siap digunakan pada sesi login berikutnya.</li>
+  </ol>
+
+  <h2>4. Memantau Log Audit Keamanan Sistem</h2>
+  <p>
+    Buka subtab <strong>Keamanan & Audit</strong>. Anda dapat melihat seluruh rekam jejak aktivitas siber:
+  </p>
+  <ul style="padding-left: 20px; font-size: 8.5pt;">
+    <li><span class="badge badge-green">LOGIN_SUCCESS</span>: Login berhasil lengkap dengan nama subjek dan peran.</li>
+    <li><span class="badge badge-amber">FAILED_LOGIN_ATTEMPT</span>: Percobaan password salah beserta nomor urut percobaan (1/5 s.d 4/5).</li>
+    <li><span class="badge badge-red">BRUTE_FORCE_LOCKOUT</span>: Penguncian otomatis saat terjadi kegagalan ke-5.</li>
+    <li><span class="badge badge-blue">ADMIN_CREDENTIALS_CHANGED</span>: Pencatatan waktu perubahan username/password admin.</li>
+  </ul>
+
+  <!-- ================= BAB 5 & 6: EXPORT & FAQ ================= -->
+  <div class="page-break"></div>
+  <h1>BAB V: Ekspor Spreadsheet Excel Komprehensif</h1>
+
+  <p>
+    Sistem dilengkapi modul ekspor instan tanpa perlu koneksi internet untuk kebutuhan laporan pertanggungjawaban dinas, evaluasi Adiwiyata, maupun arsip bulanan sekolah.
+  </p>
+
+  <h2>Cara Mengunduh Laporan Lengkap (.xlsx Multi-Sheet)</h2>
+  <ol class="steps avoid-break">
+    <li>Buka <strong>Panel Admin</strong> &rarr; pilih subtab <strong>Statistik & Grafik</strong>.</li>
+    <li>Klik tombol hijau <strong>Unduh Laporan Lengkap (.xlsx Multi-Sheet)</strong> di kanan atas.</li>
+    <li>Browser akan langsung mengunduh file bernama <code>Laporan_Komprehensif_AKSMA_GREEN_HUB.xlsx</code>.</li>
+  </ol>
+
+  <p>File Excel yang dihasilkan memuat 6 lembar kerja (worksheet) rapi sekaligus:</p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Nama Worksheet</th>
+        <th style="width: 75%;">Rincian Informasi Data yang Terekap</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Ringkasan KPI</strong></td>
+        <td>Rata-rata skor kebersihan 5R seluruh sekolah, total kg sampah terpilah, total poin prestasi beredar, dan rasio tindak lanjut aduan sarpras.</td>
+      </tr>
+      <tr>
+        <td><strong>2. Data Pengguna</strong></td>
+        <td>Nomor urut, username, nama lengkap, role/peran, kelas, dan tanggal akun didaftarkan.</td>
+      </tr>
+      <tr>
+        <td><strong>3. Data Kelas</strong></td>
+        <td>Nama kelas, wali kelas pembina, kuota santri, dan penempatan gedung kampus.</td>
+      </tr>
+      <tr>
+        <td><strong>4. Rekap Clean Check</strong></td>
+        <td>Tanggal piket, kelas, petugas, butir kriteria terpenuhi, skor persentase 5R, dan catatan kelas.</td>
+      </tr>
+      <tr>
+        <td><strong>5. Setoran Eco-Point</strong></td>
+        <td>Tanggal setor, rombel, nama santri, kategori sampah, jumlah unit fisik, poin, dan status verifikasi.</td>
+      </tr>
+      <tr>
+        <td><strong>6. Riwayat Green Report</strong></td>
+        <td>ID aduan, tanggal lapor, nama pelapor, lokasi koordinat, urgensi, status penanganan, dan catatan tindak lanjut admin.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1>BAB VI: Troubleshooting & Solusi Kendala Teknis</h1>
+
+  <div class="callout callout-danger avoid-break">
+    <h4>Kendala 1: Akun Terkunci karena Salah Password 5 Kali</h4>
+    <strong>Solusi:</strong> Sistem akan menampilkan countdown waktu mundur di halaman login. Harap tunggu hingga 60 detik berlalu. Setelah hitungan mundur selesai, masukkan kredensial yang benar. Jika Administrator lupa kata sandi baru, reset dapat dilakukan melalui Local Storage browser atau database akun pengembang.
+  </div>
+
+  <div class="callout callout-warning avoid-break">
+    <h4>Kendala 2: Koordinat GPS Tidak Terbaca Saat Lapor Sarpras</h4>
+    <strong>Solusi:</strong> Pastikan Anda telah mengizinkan izin lokasi (*Allow Location Access*) pada peramban/browser perangkat HP atau laptop Anda. Jika perangkat tidak memiliki sensor GPS (misal PC Desktop lab), gunakan fitur <strong>Input Koordinat Manual</strong> yang sudah disediakan tepat di bawah formulir peta.
+  </div>
+
+  <div class="callout callout-info avoid-break">
+    <h4>Kendala 3: Foto Bukti Terlalu Besar atau Lambat Diunggah</h4>
+    <strong>Solusi:</strong> Sistem otomatis mengompresi gambar ke format Base64 secara instan di peramban pengguna. Pastikan format foto bertipe <code>.JPG</code>, <code>.PNG</code>, atau <code>.WEBP</code> dengan pencahayaan yang jelas agar memudahkan verifikasi tim Administrator.
+  </div>
+
+  <div style="margin-top: 40px; border-top: 2px solid #cbd5e1; padding-top: 15px; text-align: center; font-size: 8.5pt; color: #64748b;">
+    <strong>Buku Panduan Operasional Resmi &copy; 2026 SMA IT Akmala Sabila</strong><br>
+    Portal Digital Kebersihan, Bank Sampah & Pemantauan Fasilitas Kampus Terpadu
+  </div>
+
+</body>
+</html>
