@@ -128,6 +128,4 @@ npm run build
 
 ## ⚖️ Hak Cipta & Lisensi
 
-Hak Cipta © 2026 **SMA IT Akmala Sabila**. Seluruh Hak Cipta Dilindungi Undang-Undang.
-
-Aplikasi ini dilisensikan dengan **Hak Pakai Terbatas (Proprietary / EULA)** untuk operasional internal institusi sekolah.
+Hak Cipta © 2026 Seluruh Hak Cipta Dilindungi Undang-Undang.
